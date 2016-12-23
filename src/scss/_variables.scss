@@ -1,0 +1,118 @@
+// Colors
+$dark-blue:      rgb(0, 29, 46);
+$medium-blue:    rgb(0, 90, 142);
+$light-blue:     rgb(164, 196, 215);
+$cold-white:     rgb(242, 246, 249);
+$white:          white;
+$teal:           rgb(0, 143, 123);
+$mint:           rgb(145, 207, 198);
+$gold:           rgb(255, 179, 48);
+$pastel-yellow:  rgb(255, 216, 148);
+$rose:           rgb(255, 0, 64);
+$pink:           rgb(237, 164, 169);
+$purple:         rgb(77, 35, 99);
+
+// Typography
+$base-font-size:  100%;
+$base-line-height:  1.5;
+$base-color:           $dark-blue;
+
+// Spacing
+$spacing-xs:    1/4 * 1rem;
+$spacing-sm:    $spacing-xs * 2;
+$spacing-md:    $spacing-sm * 2;
+$spacing-lg:    $spacing-md * 2;
+$spacing-xl:    $spacing-lg * 2;
+
+// Style
+
+$border-radius:  1/4 * 1rem;
+
+// Layout
+$site-horizontal-padding:   $spacing-lg * 2;
+$site-padding-top:          3rem;
+
+// Links
+
+$link-color:                $medium-blue;
+$link-visited-color:        $purple;
+
+// Buttons
+
+$button-border:             1px solid currentColor;
+$button-border-radius:      $border-radius;
+$button-color:              inherit;
+$button-background-color:   transparent;
+$button-font-weight:        normal;
+$button-font-size:          1rem;
+$button-line-height:        1;
+$button-padding:            $spacing-sm $spacing-md calc(#{$spacing-sm} + 1/4 * 1em);
+
+$button-hover-transition:        .25s cubic-bezier(0, 1, 1, 1);
+$button-hover-color:             $rose;
+$button-hover-background-color:  transparent;
+$button-hover-border-size:       1/8 * 1em;
+$button-hover-border:            $button-hover-border-size solid $rose;
+
+$button-active-color:            shade($button-hover-color, 10%);
+$button-active-background-color: transparentize($button-hover-color, .95);
+
+// Site header
+$site-header-height:                3rem;
+$site-header-background-color:      $dark-blue;
+$site-header-color:                 $white;
+$site-header-padding:               $spacing-sm;
+
+$site-header-site-title-font-size:  1.2em;
+
+$site-header-nav-color:             $pastel-yellow;
+$site-header-nav-spacing:           $spacing-lg;
+
+// Site footer
+
+$site-footer-padding:               $spacing-lg;
+
+// Projects
+$project-h1-color:                  inherit;
+$project-h2-color:                  $teal;
+
+// Project masthead
+$project-masthead-background-color:  $cold-white;
+$project-masthead-color:             inherit;
+$project-masthead-padding:           $spacing-lg;
+$project-masthead-h1-font-size:      3em;
+$project-masthead-h2-font-size:      1 + 1/2 * 1em;
+$project-masthead-h2-color:          $light-blue;
+
+// Project aside
+$project-aside-margin:               $spacing-md;
+$project-aside-padding:              $spacing-md;
+$project-aside-background-color:     $cold-white;
+$project-aside-color:                inherit;
+$project-aside-min-width:            20ch;
+$project-aside-max-width:            40ch;
+
+$project-aside-heading-margin-top:   0;
+
+// Project feature
+$project-feature-margin:             $spacing-lg;
+$project-feature-background-color:   $cold-white;
+$project-feature-padding:            $spacing-md;
+$project-feature-image-margin:       $spacing-lg;
+$project-feature-image-max-width:    40ch;
+$project-feature-box-shadow:         0 ($spacing-lg / 2) $spacing-lg rgba(0, 0, 0, .25);
+
+// Project figure
+$project-figure-caption-font-size:   7/8 * 1em;
+$project-figure-caption-color:       tint($dark-blue, 50%);
+$project-figure-caption-margin:      $spacing-md;
+
+// Project call-to-action block
+$project-cta-background-color:       $cold-white;
+$project-cta-padding:                $spacing-lg;
+
+$project-cta-heading-color:          $rose;
+$project-cta-heading-margin:         0 0 $spacing-md;
+
+// Z-index
+$site-header-z-index:                10;

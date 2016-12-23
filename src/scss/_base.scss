@@ -1,0 +1,16 @@
+html {
+  font-family: "Libertad", sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $base-color;
+}
+
+@media screen and (min-width: 100ch) {
+  html {
+    font-size: 1 + 1/8 * 1em;
+  }
+}
+
+body {
+  padding-top: $site-padding-top;
+}

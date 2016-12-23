@@ -1,0 +1,38 @@
+.project-masthead {
+  background-color: $project-masthead-background-color;
+  padding-top: $project-masthead-padding;
+  padding-bottom: $project-masthead-padding;
+  padding-left: $site-horizontal-padding;
+  padding-right: $site-horizontal-padding;
+  border-top: 1px solid transparent; // Don't let the h1's margin escape
+  
+  @media screen and (min-width: 100ch) {
+    padding-left: calc(1/7 * 100%);
+    padding-right: calc(1/7 * 100%);
+  }
+}
+
+.project-masthead h1 {
+  font-size: $project-masthead-h1-font-size;
+  line-height: 1;
+  margin-top: 4rem;
+  margin-right: 0;
+  margin-bottom: 1rem;
+  margin-left: 0;
+}
+
+.project-masthead h2 {
+  font-size: $project-masthead-h2-font-size;
+  font-weight: 200;
+  letter-spacing: 1/2 * 1ch;
+  text-transform: uppercase;
+  color: $project-masthead-h2-color;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 6rem;
+  margin-left: 0;
+}
+
+.project-masthead__date {
+  
+}
