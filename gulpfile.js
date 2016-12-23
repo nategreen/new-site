@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 
-// var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
   var reload = browserSync.reload;
 var clean = require('gulp-clean');
@@ -17,7 +17,7 @@ var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
-// var sassGlob = require('gulp-sass-glob');
+var sassGlob = require('gulp-sass-glob');
 var sourcemaps = require('gulp-sourcemaps');
 // var utils = require('gulp-util');
 
@@ -27,12 +27,14 @@ var src = {
   'html': './src/**/*.html.hbs',
   'drafts': ['./src/**/drafts/*.html.hbs'],
   'htmlNoDrafts': ['./src/**/*.html.hbs', '!./src/**/drafts/*.html.hbs'],
-  'partials': './src/partials/*.hbs'
+  'partials': './src/partials/*.hbs',
+  'fonts': './src/scss/webfonts'
 };
 
 var dist = {
   'root': './dist',
   'css': './dist/css',
+  'fonts': './dist/css/webfonts',
   'html': './dist/**/*.html'
 };
 
@@ -47,18 +49,31 @@ gulp.task('clean:html', function() {
   .pipe(clean());
 });
 
-// Compile Sass files
-gulp.task('sass', function(){
-  return gulp.src(src.sass)
-  .pipe(dev(sourcemaps.init()))
-  .pipe(sass().on('error', sass.logError))
-  .pipe(dev(sourcemaps.write()))
-  .pipe(gulp.dest(dist.css));
+// Clean all CSS files
+gulp.task('clean:css', function() {
+  return gulp.src(dist.css)
+    .pipe(plumber())
+    .pipe(clean());
+});
+
+// Build CSS
+gulp.task('css', ['clean:css'], function(){
+  // Compile Sass files
+  gulp.src(src.sass)
+    .pipe(plumber())
+    .pipe(sassGlob())
+    .pipe(dev(sourcemaps.init()))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(dev(sourcemaps.write()))
+    .pipe(gulp.dest(dist.css));
+  // Move webfonts to dist
+  return gulp.src(src.fonts).pipe(gulp.dest(dist.fonts));
 });
 
 // Watch sass files for changes
-gulp.task('watch:sass', ['sass'], function(){
-  gulp.watch(src.sass, ['sass']);
+gulp.task('watch:sass', ['css'], function(){
+  gulp.watch(src.sass, ['css']);
 })
 
 // Render Handlebars templates
@@ -94,7 +109,7 @@ gulp.task('watch:html', ['handlebars'], function(){
 });
 
 // Compiles everything (development)
-gulp.task('default', ['handlebars', 'sass']);
+gulp.task('default', ['handlebars', 'css']);
 
 // Task that watches everything and runs a Browserlink server for development
 gulp.task('serve', ['default'], function(){
@@ -105,7 +120,7 @@ gulp.task('serve', ['default'], function(){
   });
 
   gulp.task('reload:html', ['handlebars'], reload);
-  gulp.task('reload:css', ['sass'], reload);
+  gulp.task('reload:css', ['css'], reload);
 
   gulp.watch(src.sass, ['reload:css']);
   gulp.watch([src.html, src.partials], ['reload:html']);
@@ -113,7 +128,7 @@ gulp.task('serve', ['default'], function(){
 
 // Task that builds the site for staging
 gulp.task('build', ['env:prod'], function(){
-  runSequence(['handlebars', 'sass'])
+  runSequence(['handlebars', 'css'])
 });
 
 // Task that builds the site in production mode and pushes to GH pages
