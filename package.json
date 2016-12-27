@@ -20,6 +20,7 @@
     "gulp-uglify": "^2.0.0",
     "handlebars": "^4.0.6",
     "handlebars-helpers": "^0.7.5",
+    "handlebars-layouts": "^3.1.4",
     "helper-markdown": "^0.2.1",
     "pump": "^1.0.2",
     "run-sequence": "^1.2.2"

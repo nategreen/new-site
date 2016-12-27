@@ -27,7 +27,7 @@ var src = {
   'html': './src/**/*.html.hbs',
   'drafts': ['./src/**/drafts/*.html.hbs'],
   'htmlNoDrafts': ['./src/**/*.html.hbs', '!./src/**/drafts/*.html.hbs'],
-  'partials': './src/partials/*.hbs',
+  'partials': ['./src/partials/*.hbs', './src/layouts/*.hbs'],
   'fonts': './src/scss/webfonts'
 };
 
