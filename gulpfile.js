@@ -12,6 +12,7 @@ var fm = require('front-matter');
 // var git = require('gulp-git');
 var hb = require('gulp-hb');
   var hbHelpers = require('handlebars-helpers');
+  var hbLayouts = require('handlebars-layouts');
 var plumber = require('gulp-plumber');
 // var push = require('gulp-git-push');
 var rename = require('gulp-rename');
@@ -25,9 +26,10 @@ var src = {
   'root': './src',
   'sass': './src/scss/**/*.scss',
   'html': './src/**/*.html.hbs',
-  'drafts': ['./src/**/drafts/*.html.hbs'],
+  'drafts': './src/**/drafts/*.html.hbs',
   'htmlNoDrafts': ['./src/**/*.html.hbs', '!./src/**/drafts/*.html.hbs'],
-  'partials': ['./src/partials/*.hbs', './src/layouts/*.hbs'],
+  'partials': './src/partials/**/*.hbs',
+  'layouts': './src/layouts/**/*.hbs',
   'fonts': './src/scss/webfonts'
 };
 
@@ -81,7 +83,9 @@ gulp.task('handlebars', ['clean:html'], function() {
   var hbSource = prod() ? src.htmlNoDrafts : src.html;
   var hbStream = hb()
     .helpers(hbHelpers)
-    .partials(src.partials);
+    .helpers(hbLayouts)
+    .partials(src.partials)
+    .partials(src.layouts);
 
   return gulp.src(hbSource)
     .pipe(plumber())

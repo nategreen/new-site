@@ -2,7 +2,8 @@
 page:
   title: Home page
 ---
-{{> head }}
-  {{> site-header }}
-  <h1>Hello world!</h1>
-{{> foot }}
+{{#extend "default" }}
+  {{#content "body" }}
+    <h1>Hello world</h1>
+  {{/content}}
+{{/extend}}
