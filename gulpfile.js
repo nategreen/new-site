@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 
+// Gulp plugins
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
   var reload = browserSync.reload;
@@ -21,6 +22,10 @@ var sass = require('gulp-sass');
 var sassGlob = require('gulp-sass-glob');
 var sourcemaps = require('gulp-sourcemaps');
 // var utils = require('gulp-util');
+
+// Metalsmith plugins
+var gulpsmith = require('gulpsmith');
+var collections = require('metalsmith-collections');
 
 var src = {
   'root': './src',
@@ -78,6 +83,41 @@ gulp.task('watch:sass', ['css'], function(){
   gulp.watch(src.sass, ['css']);
 })
 
+// Blog posts
+gulp.task('posts', function(){
+  gulp.src('./_posts')
+    .pipe(gulpsmith()
+      .use())
+});
+
+// Metalsmith
+gulp.task('metalsmith', ['clean:html'], function(){
+  gulp.src(src.html)
+    .pipe(gulpsmith()
+      .metadata({
+        "site": {
+          "title": "Nate Green, UX Designer",
+          "url": "http://nategreen.design/"
+        }
+      })
+      .use(collections({
+        "posts": {
+          "pattern": "./_posts/",
+          "sortBy": "date",
+          "reverse": true
+        },
+        "projects": {
+          "pattern": "./_projects/"
+        }
+      }))
+    )
+    // Change the extensions from .html.hbs to .html
+    .pipe(rename({
+      extname: ''
+    }))
+    .pipe(gulp.dest(dist.root));
+});
+
 // Render Handlebars templates
 gulp.task('handlebars', ['clean:html'], function() {
   var hbSource = prod() ? src.htmlNoDrafts : src.html;
@@ -113,7 +153,7 @@ gulp.task('watch:html', ['handlebars'], function(){
 });
 
 // Compiles everything (development)
-gulp.task('default', ['handlebars', 'css']);
+gulp.task('default', ['css']);
 
 // Task that watches everything and runs a Browserlink server for development
 gulp.task('serve', ['default'], function(){

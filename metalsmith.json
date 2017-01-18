@@ -1,0 +1,23 @@
+{
+  "source": "./src/**/*.html.hbs",
+  "metadata": {
+    "site": {
+      "name": "Nate Green, UX Designer",
+      "url": "http://nategreen.design/",
+      "description": "Nate Green is a UX designer with a visual design background and experience in several other creative, digital media."
+    }
+  },
+  "plugins": {
+    "metalsmith-collections": {
+      "posts": {
+        "pattern": "./_posts",
+        "sortBy": "date",
+        "reverse": true
+      },
+      "projects": "./_projects"
+    },
+    "metalsmith-markdown": {
+      ""
+    }
+  }
+}
