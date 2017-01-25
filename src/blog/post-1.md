@@ -2,4 +2,4 @@
 title: Post Number One
 ---
 
-This is a post, written in Markdown
+# This is a post, written in Markdown
