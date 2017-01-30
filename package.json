@@ -19,5 +19,8 @@
   "scripts": {
     "prestart": "npm install",
     "start": "node ."
+  },
+  "dependencies": {
+    "metalsmith-drafts": "0.0.1"
   }
 }

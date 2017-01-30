@@ -1,12 +1,13 @@
 var metalsmith = require('metalsmith');
-var markdown = require('metalsmith-markdown');
-var layouts = require('metalsmith-layouts');
 var collections = require('metalsmith-collections');
-var permalinks = require('metalsmith-permalinks');
+var drafts = require('metalsmith-drafts');
 var inPlace = require('metalsmith-in-place');
-var watch = require('metalsmith-watch');
-var serve = require('metalsmith-serve');
+var layouts = require('metalsmith-layouts');
+var markdown = require('metalsmith-markdown');
+var permalinks = require('metalsmith-permalinks');
 var sass = require('metalsmith-sass');
+var serve = require('metalsmith-serve');
+var watch = require('metalsmith-watch');
 
 var partialsDirectory = './partials/';
 
@@ -32,6 +33,7 @@ metalsmith(__dirname)
     pattern: '**/*.html'
   }
 }))
+.use(drafts())
 .use(inPlace({
   pattern: '**/*.hbs',
   engineOptions: {
