@@ -1,6 +1,10 @@
 var metalsmith = require('metalsmith');
 var collections = require('metalsmith-collections');
 var drafts = require('metalsmith-drafts');
+var handlebars = require('handlebars');
+  var helpers = require('handlebars-helpers')({
+    handlebars: handlebars
+  });  
 var inPlace = require('metalsmith-in-place');
 var layouts = require('metalsmith-layouts');
 var markdown = require('metalsmith-markdown');
@@ -11,7 +15,7 @@ var serve = require('metalsmith-serve');
 var watch = require('metalsmith-watch');
 var writeMetadata = require('metalsmith-writemetadata');
 
-var partialsDirectory = './partials/';
+var partialsDirectory = './partials'
 
 metalsmith(__dirname)
 .metadata({
@@ -39,10 +43,16 @@ metalsmith(__dirname)
 .use(markdown())
 .use(permalinks({
   relative: false,
-  linksets: [{
+  linksets: [
+  {
     match: {collection: 'posts'},
     pattern: 'blog/:link.name'
-  }]
+  },
+  {
+    match: {collection: 'posts'},
+    pattern: 'case-studies/:link.name'
+  }
+  ]
 }))
 .use(paths({
   property: 'link',
@@ -52,23 +62,18 @@ metalsmith(__dirname)
   engine: 'handlebars',
   pattern: ['**/*.html', '**/*.hbs'],
   rename: false,
-  partials: {
-    'foot': partialsDirectory + 'foot.hbs',
-    'head': partialsDirectory + 'head.hbs',
-    'page-header': partialsDirectory + 'page-header.hbs',
-    'site-header': partialsDirectory + 'site-header.hbs'
-  }
-}))
-.use(writeMetadata({
-  pattern: ['**/*'],
-  bufferencoding: 'utf-8'
+  partials: partialsDirectory
 }))
 .use(layouts({
   engine: 'handlebars',
   directory: './layouts',
-  default: 'blog-post.hbs',
-  pattern: ["**/*.html","**/*.hbs"]
+  default: 'default.hbs',
+  pattern: ["**/*.html"]
 }))
+// .use(writeMetadata({
+//   pattern: ['**/*'],
+//   bufferencoding: 'utf-8'
+// }))
 // .use(serve())
 // .use(watch({
 //   paths: {
