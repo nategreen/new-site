@@ -1,13 +1,14 @@
 var metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
 var layouts = require('metalsmith-layouts');
-// var handlebars = require('handlebars');
 var collections = require('metalsmith-collections');
 var permalinks = require('metalsmith-permalinks');
-var render = require('metalsmith-in-place');
+var inPlace = require('metalsmith-in-place');
 var watch = require('metalsmith-watch');
 var serve = require('metalsmith-serve');
 var sass = require('metalsmith-sass');
+
+var partialsDirectory = './partials/';
 
 metalsmith(__dirname)
 .metadata({
@@ -31,30 +32,39 @@ metalsmith(__dirname)
     pattern: '**/*.html'
   }
 }))
-.use(render({
-  pattern: '**/*.hbs'
+.use(inPlace({
+  pattern: '**/*.hbs',
+  engineOptions: {
+    partials: {
+      'foot': partialsDirectory + 'foot.hbs',
+      'head': partialsDirectory + 'head.hbs',
+      'page-header': partialsDirectory + 'page-header.hbs',
+      'site-header': partialsDirectory + 'site-header.hbs'
+    }
+  }
 }))
 .use(markdown())
 .use(permalinks({
   relative: false,
   linksets: [{
     match: {collection: 'posts'},
-    pattern: 'blog/:title'
+    pattern: 'blog/:title/:name'
   }]
 }))
 .use(layouts({
   engine: 'handlebars',
-  directory: './_layouts',
+  directory: './layouts',
   default: 'blog-post.hbs',
+  partials: './partials',
   pattern: ["**/*.html","**/*.hbs"]
 }))
-.use(serve())
-.use(watch({
-  paths: {
-    "${source}/**/*": true,
-    "./_layouts/**/*": "**/*"
-  }
-}))
+// .use(serve())
+// .use(watch({
+//   paths: {
+//     "${source}/**/*": true,
+//     "./layouts/**/*": "**/*"
+//   }
+// }))
 .build(function (err) {
   if (err) {
     console.log(err);
