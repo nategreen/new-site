@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Justifying a Usability Study"
 draft: true
+date: 2015-01-18
 ---
 
 In my Usability I class at Kent State, our first week focused on the differences between usability studies and market research techniques such as focus groups. We start here because a common barrier to conducting usability testing is that "we've already done focus groups." Thanks to our textbooks and a few excellent articles, here's what I've learned this week.

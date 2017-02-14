@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Enrolling in the User Experience Design Program at Kent State University"
+date: 2014-12-10
 ---
 
 This Fall, I started Kent State University's Master's program in User Experience Design. Until this year, I never thought I'd enroll in graduate school at all, and I *certainly* never thought I'd enjoy it. Fortunately, I was wrong.

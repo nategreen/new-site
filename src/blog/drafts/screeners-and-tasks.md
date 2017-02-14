@@ -1,7 +1,8 @@
 ---
 title: "Screeners and Tasks for Usability Studies"
-layout: post
+layout: blog-post.hbs
 draft: true
+date: 2015-02-01
 ---
 
 This week in my Usability I class at Kent State, we started learning about the building blocks of a usability study. First, we discussed the screening process, which helps researchers find the most appropriate participants in a long list of candidates. Then, we also learned how to develop tasks that, when completed by participants under observation, would yield the answers the design team needs.

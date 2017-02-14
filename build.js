@@ -2,9 +2,8 @@ var metalsmith = require('metalsmith');
 var collections = require('metalsmith-collections');
 var drafts = require('metalsmith-drafts');
 var handlebars = require('handlebars');
-  var helpers = require('handlebars-helpers')({
-    handlebars: handlebars
-  });  
+  var helpers = require('handlebars-helpers')();
+var ignore = require('metalsmith-ignore');
 var inPlace = require('metalsmith-in-place');
 var layouts = require('metalsmith-layouts');
 var markdown = require('metalsmith-markdown');
@@ -15,13 +14,12 @@ var serve = require('metalsmith-serve');
 var watch = require('metalsmith-watch');
 var writeMetadata = require('metalsmith-writemetadata');
 
-var partialsDirectory = './partials'
-
 metalsmith(__dirname)
 .metadata({
   site: {
     name: "Nate Green, UX Designer",
-    description: "Nate Green is a UX designer from Northeast Ohio."
+    description: "Nate Green is a UX designer from Northeast Ohio.",
+    baseUrl: ''
   }
 })
 .source('./src')
@@ -40,7 +38,10 @@ metalsmith(__dirname)
     pattern: '**/*.html'
   }
 }))
-.use(markdown())
+.use(markdown({
+  'smartypants': true,
+  'gfm': false
+}))
 .use(permalinks({
   relative: false,
   linksets: [
@@ -62,25 +63,22 @@ metalsmith(__dirname)
   engine: 'handlebars',
   pattern: ['**/*.html', '**/*.hbs'],
   rename: false,
-  partials: partialsDirectory
+  partials: './partials'
 }))
 .use(layouts({
   engine: 'handlebars',
   directory: './layouts',
-  default: 'default.hbs',
-  pattern: ["**/*.html"]
+  default: false,
+  pattern: ["**/*.html"],
+  partials: '/partials'
 }))
-// .use(writeMetadata({
-//   pattern: ['**/*'],
-//   bufferencoding: 'utf-8'
-// }))
-// .use(serve())
-// .use(watch({
-//   paths: {
-//     "${source}/**/*": true,
-//     "./layouts/**/*": "**/*"
-//   }
-// }))
+.use(serve())
+.use(watch({
+  paths: {
+    "${source}/**/*": true,
+    "layouts/**/*": "**/*"
+  }
+}))
 .build(function (err) {
   if (err) {
     console.log(err);

@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "My First Usability Test"
+date: 2015-02-15
 ---
 
 This week, the assignment in my Usability I class at Kent State was to moderate a usability test.

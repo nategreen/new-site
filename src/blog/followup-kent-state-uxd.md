@@ -1,6 +1,7 @@
 ---
 title: "Followup: Kent State's User Experience Design Program"
-layout: post
+layout: blog-post.hbs
+date: 2016-03-24
 ---
 
 About a year ago, [I wrote a post]({% post_url 2014-12-10-kent-state-uxd %}) about enrolling in Kent State University's User Experience Design (UXD) Master's program. Since I wrote that post, several people have emailed me---as I invited them to do---asking about the program and my experience over the last year.

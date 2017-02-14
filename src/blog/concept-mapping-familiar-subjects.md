@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Concept Mapping \"Familiar\" Subjects"
+date: 2014-12-30
 ---
 
 I've found concept maps to be very helpful, especially at the beginning of a project.
@@ -19,7 +20,7 @@ What I found, though, was that the concept map helped me solidify my understandi
 
 ### Step 1: make a list of all the ideas you want to include
 
-In my class, one of our primary sources for learning about concept maps was [Dan Brown's](dan-brown) *[Communicating Design](communicating-design)*. In the book, Brown recommends listing out all the ideas that will be included in the diagram.
+In my class, one of our primary sources for learning about concept maps was [Dan Brown's](dan-brown) *[Communicating Design][communicating-design]*. In the book, Brown recommends listing out all the ideas that will be included in the diagram.
 
 In my previous concept maps, I found that laying out a web of complex inter-related ideas was easier said than done. For visual clarity, it's best to minimize the number of arrows that cross over each other, but sometimes it can take several iterations to make that happen, especially if you're adding nodes to the map as you think of them.
 

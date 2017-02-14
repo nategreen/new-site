@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Usability I ... Done"
 draft: true
+date: 2015-02-28
 ---
 
 Our final report was the culmination of Usability I at Kent State. Having just worked on it all day, I'm honestly very tired, but I'll collect a few of my thoughts about it here as I wind down.

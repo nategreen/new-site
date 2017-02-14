@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Formative vs. Summative Usability Testing"
 draft: true
+date: 2015-01-24
 ---
 
 When designing a usability study, there are a lot of choices to make. In general, the way we choose to conduct the test puts it in one of two broad categories: **formative** and **summative**. These terms don't necessarily reflect the stage of the project in which they'd be conducted. Rather, they refer to the process they support best: "formative" testing yields qualitative insights that help designers decide how to proceed with the design, and "summative" testing involves a quantitative assessment of the design's performance in terms of usability.

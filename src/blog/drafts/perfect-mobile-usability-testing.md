@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "The Perfect Mobile Usability Setup"
 draft: true
+date: 2015-04-12
 ---
 
 Spoiler alert: no such thing exists. You probably already figured that out. However, it's worth dreaming about...what would it take to create the perfect usability testing setup for mobile devices?

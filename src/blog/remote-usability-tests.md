@@ -1,6 +1,7 @@
 ---
-layout: post
-title: "Usability II: Remote Testing with Loop<sup>11</sup>"
+layout: blog-post.hbs
+title: "Usability II: Remote Testing with Loop11"
+date: 2015-03-22
 ---
 
 This week, we set up remote, unmoderated usability tests with Loop<sup>11</sup>. It was a bit of a train wreck---but probably an excellent primer for conducting quick usability tests in the real world, so to speak.

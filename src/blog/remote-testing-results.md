@@ -1,6 +1,7 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Remote Usability Testing Results"
+date: 2015-04-05
 ---
 
 Even though I only had 12 participants, I learned a lot from my first unmoderated remote usability test.

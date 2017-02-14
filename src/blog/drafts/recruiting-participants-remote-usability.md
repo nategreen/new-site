@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Usability II: Recruiting Participants for Remote Usability Testing"
 draft: true
+date: 2015-03-14
 ---
 
 This week in Usability II, we learned about and discussed the various ways participants could be recruited for remote usability testing. Since different projects call for different testing strategies, recruiting for remote testing can require extra forethought and creativity.

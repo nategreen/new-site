@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Thinking inside the box"
 draft: true
+date: 2015-04-19
 ---
 
 This week I've been thinking about how I think as a designer, and how I can force myself to do a better job of it.

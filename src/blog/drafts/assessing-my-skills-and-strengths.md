@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog-post.hbs
 title: "Assessing My Skills & Strengths"
 draft: true
+date: 2014-12-12
 ---
 
 I just finished up the "UXD in Practice" course at Kent State---a broad overview of techniques and deliverables employed by UX designers. For our final project, we designed the beginnings of a portfolio site using the deliverables we'd learned about in class. 
